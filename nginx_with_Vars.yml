@@ -1,0 +1,10 @@
+---
+- hosts: all
+
+  vars_prompt:
+  - name: "service"
+    prompt: "Enter the service name"
+
+  tasks:
+  - name: Stop Nginx
+    service: name={{service}} state=stopped
