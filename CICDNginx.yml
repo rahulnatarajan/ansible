@@ -4,13 +4,13 @@
 
   tasks:
   - name: Download Build File
-    shell: "aws s3 cp s3://jenkinstest-rahul/builds/jobs/MLCOITest/1/ /home/ec2-user/1/ --recursive"
+    shell: "aws s3 cp s3://jenkinstest-rahul/builds/jobs/MLCOITest/2/ /home/ec2-user/2/ --recursive"
 
   - name: Stop Nginx
     service: name=nginx state=stopped
 
   - name: Copying build files
-    shell: "cp -f /home/ec2-user/1/index.html /usr/share/nginx/html/"
+    shell: "cp -f /home/ec2-user/2/index.html /usr/share/nginx/html/"
 
   - name: Start Nginx
     service: name=nginx state=started
