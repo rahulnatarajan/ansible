@@ -3,7 +3,7 @@
 
   tasks:
   - name: Download Build File
-    shell: "aws s3 cp s3://jenkinstest-rahul/builds/jobs/MLCOITest/2/ /home/ec2-user/2/ --recursive"
+    shell: "aws s3 cp s3://jenkinstest-rahul/builds/jobs/MLCOITest/2/index.html /home/ec2-user/2/"
 
   - name: Stop Nginx
     service: name=nginx state=stopped
