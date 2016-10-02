@@ -1,0 +1,20 @@
+---
+- hosts: 10.0.1.241
+  sudo: yes
+
+  vars_prompt:
+  - name: "build"
+    prompt: "Enter the build no"
+
+  tasks:
+  - name: Download Build File
+    shell: "aws s3 cp s3://jenkinstest-rahul/builds/jobs/TestDevopsToolcahin/{{build}}/ /home/ec2-user/{{build}}/ --recursive"
+
+  - name: Stop Nginx
+    service: name=nginx state=stopped
+
+  - name: Copying build files
+    shell: "cp -f /home/ec2-user/{{build}}/index.html /usr/share/nginx/html/"
+
+  - name: Start Nginx
+    service: name=nginx state=started
