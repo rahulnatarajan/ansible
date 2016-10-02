@@ -7,15 +7,11 @@
 
   - name: Stop Nginx
     service: name=nginx state=stopped
-    become: true
-    become_method: su
-    become_user: nginx
+    sudo: yes
 
   - name: Copying build files
     shell: "cp -f /home/ec2-user/2/index.html /usr/share/nginx/html/"
 
   - name: Start Nginx
     service: name=nginx state=started
-    become: true
-    become_method: su
-    become_user: nginx
+    sudo: yes
