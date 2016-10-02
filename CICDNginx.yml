@@ -1,6 +1,5 @@
 ---
 - hosts: 10.0.1.241
-  sudo: yes
 
   tasks:
   - name: Download Build File
