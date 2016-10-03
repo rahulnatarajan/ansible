@@ -6,13 +6,16 @@
     shell: "aws s3 cp s3://jenkinstest-rahul/builds/jobs/MLCOITest/6/index.html /home/ec2-user/6/"
 
   - name: Stop Nginx
-    service: name=nginx state=stopped
     become: yes
+    service: name=nginx state=stopped
+    
 
   - name: Copying build files
-    shell: "cp -f /home/ec2-user/6/index.html /usr/share/nginx/html/"
     become: yes
+    shell: "cp -f /home/ec2-user/6/index.html /usr/share/nginx/html/"
+    
 	
   - name: Start Nginx
-    service: name=nginx state=started
     become: yes
+    service: name=nginx state=started
+    
