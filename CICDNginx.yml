@@ -1,5 +1,5 @@
 ---
-- hosts: logstash
+- hosts: 10.0.1.241
 
   tasks:
   - name: Download Build File
@@ -12,7 +12,7 @@
   - name: Copying build files
     shell: "cp -f /home/ec2-user/5/index.html /usr/share/nginx/html/"
     sudo: yes
-
+	
   - name: Start Nginx
     service: name=nginx state=started
     sudo: yes
