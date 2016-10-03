@@ -2,9 +2,17 @@
 - hosts: logstash
 
   tasks:
+  - name: Download Build File
+    shell: "aws s3 cp s3://jenkinstest-rahul/builds/jobs/MLCOITest/5/index.html /home/ec2-user/5/"
+
   - name: Stop Nginx
     service: name=nginx state=stopped
     become: yes
-	
-  - name: Download Build File
-    shell: "aws s3 cp s3://jenkinstest-rahul/builds/jobs/MLCOITest/5/index.html /home/ec2-user/5/"
+
+  - name: Copying build files
+    shell: "cp -f /home/ec2-user/5/index.html /usr/share/nginx/html/"
+    become: yes
+
+  - name: Start Nginx
+    service: name=nginx state=started
+    become: yes
