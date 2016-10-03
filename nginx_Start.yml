@@ -1,6 +1,6 @@
 ---
-- hosts: all
+- hosts: logstash
 
   tasks:
   - name: Stop Nginx
-    service: name=nginx state=started
+    service: name=nginx state=stopped
