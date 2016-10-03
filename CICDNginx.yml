@@ -7,12 +7,9 @@
 
   - name: Stop Nginx
     service: name=nginx state=stopped
-    sudo: yes
 
   - name: Copying build files
     shell: "cp -f /home/ec2-user/6/index.html /usr/share/nginx/html/"
-    sudo: yes
 
   - name: Start Nginx
     service: name=nginx state=started
-    sudo: yes
