@@ -4,4 +4,3 @@
   tasks:
   - name: Stop Nginx
     service: name=nginx state=stopped
-    become: yes
