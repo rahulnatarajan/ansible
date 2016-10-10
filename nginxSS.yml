@@ -1,0 +1,11 @@
+---
+- hosts: {{hostname}}
+
+  tasks:
+  - name: Stop Nginx
+    service: name=nginx state=stopped
+    become: yes
+
+  - name: Start Nginx
+    service: name=nginx state=started
+    become: yes
